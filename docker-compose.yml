@@ -113,8 +113,9 @@ services:
     container_name: promtail
     restart: always
     volumes:
-      - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - ./promtail/promtail-config.yml:/etc/promtail/config.yml
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - frontend-net
 
